@@ -41,18 +41,19 @@ export default function App() {
         </div>
       </div>
       <ul>
-        <li>
-          <span>Walk the dog</span>
-          <button>Delete</button>
+        {tasks.map(({ id, label }) => (
+          <li key={id}>
+            <span>{label}</span>
+            <button
+              onClick={()=>{
+                setTasks(
+                  tasks.filter((tasks)=> tasks.id !== id),
+                );
+              }}>
+              Delete
+            </button>
         </li>
-        <li>
-          <span>Water the plants</span>
-          <button>Delete</button>
-        </li>
-        <li>
-          <span>Wash the dishes</span>
-          <button>Delete</button>
-        </li>
+      ))}
       </ul>
     </div>
   );
